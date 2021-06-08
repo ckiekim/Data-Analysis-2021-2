@@ -42,7 +42,7 @@ for page in range(len_anchors):
             info = pair[i].find_element_by_css_selector('.info')
             name = info.find_element_by_css_selector('.title').text
             summary = info.find_element_by_css_selector('.etc').text
-            print(index, i, name)
+            print(page, index, i, name)
 
             pair[i].find_element_by_css_selector('.only-desktop_not').click()
             time.sleep(2)
@@ -65,6 +65,8 @@ for page in range(len_anchors):
 
             driver.back()
             time.sleep(1)
+
+driver.close()
 
 df = pd.DataFrame({
     '상호': name_list,
